@@ -8,22 +8,12 @@
 			"email": "andy@spiders-lair.com"
 	}],
 	"repositories": [{
-		"type": "package",
-		"package": {
-			"name": "PhpScotland2016/DemoServiceIf",
-			"version": "1.0.0",
-			"source": {
-				"url": "git@github.com:A-j-K/PhpScotland2016-DemoServiceIf.git",
-				"type": "git",
-				"reference": "1.0.0"
-			},
-			"autoload": {
-				"psr-4": { "PhpScotland2016\\Demo\\Service\\Interfaces\\": "" }
-			}
-		}
+		"type": "vcs",
+		"url": "git@github.com:A-j-K/PhpScotland2016-DemoServiceIf.git",
+		"package-path": "PhpScotland2016/DemoServiceInterface"
 	}],
 	"require": {
-		"PhpScotland2016/DemoServiceIf": "1.0.0"
+		"PhpScotland2016/DemoServiceInterface": "1.0.0.x-dev"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "4.0.*"
