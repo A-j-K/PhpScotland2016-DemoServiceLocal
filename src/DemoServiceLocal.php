@@ -23,10 +23,7 @@ class DemoServiceLocal implements DemoServiceInterface
 			'wait_for' => $wait_for,
 			'msg' => 'Well, I waited as asked!'
 		];
-		$response = new DemoServiceResponse;
-		$response->setHeader("Content-Type", "application/json");
-		$response->setBody(json_encode($message, JSON_HEX_QUOT|JSON_PRETTY_PRINT));
-		return $response;
+		return new DemoServiceResponse($message);
 	}
 }
 

@@ -13,19 +13,22 @@ class DemoServiceLocalTest extends PHPUnit_Framework_TestCase
 		$request = new DemoServiceRequest; 
 		$request->setParam("wait_for", "1");
 		$ut = new DemoServiceLocal;
+
 		$response = $ut->handleRequest($request);
 		$this->assertSame($response->getHeader("Content-Type"), "application/json");
-		$body = $response->getBody();
-		$this->assertTrue(is_string($body));
-		$this->assertTrue(strlen($body) > 0);
-		$this->assertStringStartsWith("{", $body, "Not valid json?");
-		$this->assertStringEndsWith("}", $body, "Not valid json?");
-		$arr = json_decode($body, true);
-		$this->assertTrue(is_array($arr), "Failed to decode json");
-		$this->assertContains("result", $arr);
+
+		$json = $response->getJson();
+		$this->assertTrue(is_string($json));
+		$this->assertTrue(strlen($json) > 0);
+		$this->assertStringStartsWith("{", $json, "Not valid json?");
+		$this->assertStringEndsWith("}", $json, "Not valid json?");
+
+		$arr = $response->getArray();
+		$this->assertArrayHasKey("result", $arr);
 		$this->assertSame($arr["result"], 0); // expect int not string
-		$this->assertContains("wait_for", $arr);
+		$this->assertArrayHasKey("wait_for", $arr);
 		$this->assertSame($arr["wait_for"], 1); // expect int not string
+		$this->assertArrayHasKey("msg", $arr);
 	}
 }
 
