@@ -9,7 +9,7 @@
 	}],
 	"repositories": [{
 		"type": "vcs",
-		"url": "git@github.com:A-j-K/PhpScotland2016-DemoServiceIf.git",
+		"url": "https://github.com/A-j-K/PhpScotland2016-DemoServiceIf.git",
 		"package-path": "PhpScotland2016/DemoServiceInterface"
 	}],
 	"require": {
