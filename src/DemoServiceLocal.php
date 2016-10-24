@@ -18,11 +18,9 @@ class DemoServiceLocal implements DemoServiceInterface
 			
 		}
 		sleep($wait_for);
-		$message = [
-			'result' => 0,
-			'wait_for' => $wait_for,
-			'msg' => 'Well, I waited as asked!'
-		];
+		$message = $request->getAsArray();
+		$message['result'] = 0;
+		$message['msg'] = 'Well, I waited as asked!';
 		return new DemoServiceResponse($message);
 	}
 }
